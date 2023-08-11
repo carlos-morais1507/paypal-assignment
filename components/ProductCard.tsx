@@ -3,8 +3,8 @@ import React from 'react'
 const ProductCard = () => {
   return (
     <>
-    <div className="card card-side bg-base-100 shadow hidden md:flex">   
-      <figure><img className='h-32 aspect-square object-cover' src="https://images.pexels.com/photos/13094233/pexels-photo-13094233.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Photo" /></figure>
+    <div className="card card-side bg-base-100 shadow hidden md:flex h-32">   
+      <figure><img className='h-full  aspect-square object-cover' src="https://images.pexels.com/photos/13094233/pexels-photo-13094233.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Photo" /></figure>
       <div className="card-body">
         <div className='flex items-center'>
           <h2 className="card-title">Grey shirt</h2>
