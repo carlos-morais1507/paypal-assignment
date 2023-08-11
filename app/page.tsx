@@ -16,7 +16,7 @@ export default function Home() {
         </div>
         <div className='md:w-1/2 md:h-full p-3 w-full h-1/2'>
           <span className='text-secondary text-lg md:text-2xl font-bold'>Your Data</span>
-          <div className='bg-base-200 border-neutral h-[550px] w-full rounded-xl'>
+          <div className='bg-base-200 border-neutral w-full rounded-xl'>
             <UserForm />
           </div>
           <button className='btn btn-secondary mt-5 btn-disabled'>Pay with Paypal</button>
