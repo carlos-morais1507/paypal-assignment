@@ -15,7 +15,7 @@ const ProductCard = () => {
     </div>
     <div className='indicator inline-flex md:hidden w-[47%]'>
       <span className='indicator-item badge badge-primary -translate-x-0 translate-y-0'>1x</span>
-      <div className='card card-compact bg-base-100 flex md:hidden w-full'>
+      <div className='card card-compact bg-base-100 flex md:hidden w-full h-44'>
         <figure><img className='h-28 w-full aspect-square object-cover' src="https://images.pexels.com/photos/13094233/pexels-photo-13094233.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Photo" /></figure>
           <div className="card-body gap-0">
             <h2 className="card-title mb-0 leading-5 text-sm">Grey shirt</h2>
