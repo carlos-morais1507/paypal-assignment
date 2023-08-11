@@ -10,13 +10,7 @@ export default function Home() {
           <span className='text-secondary text-lg md:text-2xl font-bold'>Your Cart</span>
           <div className='bg-base-200 border-neutral h-[350px] md:h-[650px] w-full rounded-xl p-3 overflow-scroll overflow-x-hidden flex md:flex-col gap-3 flex-wrap md:flex-nowrap mx-auto'>
             <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
+
           </div>
         </div>
         <div className='md:w-1/2 md:h-full p-3 w-full h-1/2'>
