@@ -5,7 +5,6 @@ interface Address {
   regionCode: string;
   locality: string;
   addressLines: string[];
-  // AIzaSyDoSHHtS0eU2-U3SLXiIzfNnnPkYlxASCQ
 }
 
 export default function UserForm() {
@@ -20,6 +19,7 @@ export default function UserForm() {
   });
 
   const [loading, setLoading] = useState(false);
+  const [validState, setValidState] = useState('neutral')
 
   const handleChange = (e:any) => {
     const { id, value } = e.target;
@@ -31,6 +31,7 @@ export default function UserForm() {
 
   const validateAdress = async (e: any) => {
     e.preventDefault()
+    setValidState('neutral')
     setLoading(true)
     const addressLines = [formData.addressLine1, formData.addressLine2, formData.state, formData.country, formData.zipCode]
 
@@ -50,12 +51,8 @@ export default function UserForm() {
     console.log(data)
 
     const isValid = data.result.verdict.addressComplete;
+    isValid ? setValidState('valid') : setValidState('invalid');
 
-    if (isValid) {
-      console.log('OK!')
-    } else {
-      console.log('NOT OK!')
-    }
 
     setLoading(false)
   }
@@ -114,15 +111,11 @@ export default function UserForm() {
         </label>
         <input type="text" id="country"value={formData.country} onChange={handleChange}  className="input input-bordered input-sm md:input-md w-full" placeholder="Type here" />
       </div>
-      <button type="submit" className={`btn btn-primary btn-sm md:btn-md mt-3 ${loading ? 'btn-disabled' : ''}`}>
-        {
-          loading ? (
-            <span className="loading loading-spinner"></span>
-          ) : (
-            <span>Validate Adress</span>
-          )
-        }
-      </button>
+      {validState === 'neutral' && <button className="btn btn-primary btn-sm md:btn-md mt-3">
+        {loading ? (<span className="loading loading-spinner"></span>) : (<span>Validate Address</span>)}
+      </button>}
+      {validState === 'valid' && <button className="btn btn-success btn-sm md:btn-md mt-3">Address Valid!</button>}
+      {validState === 'invalid' && <button className="btn btn-error btn-sm md:btn-md mt-3">Address invalid!</button>}
     </form>
   );
 }
