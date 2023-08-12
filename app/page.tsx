@@ -1,6 +1,5 @@
 import ProductCard from '@/components/ProductCard'
 import UserForm from '@/components/UserForm'
-import Image from 'next/image'
 
 export default function Home() {
   return (
@@ -19,7 +18,7 @@ export default function Home() {
           <div className='bg-base-200 border-neutral w-full rounded-xl'>
             <UserForm />
           </div>
-          <button className='btn btn-secondary mt-5 btn-disabled'>Pay with Paypal</button>
+          <button className='btn btn-secondary mt-5'>Pay with Paypal</button>
         </div>
       </div>
     </main>
