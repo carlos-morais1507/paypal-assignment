@@ -10,15 +10,15 @@ export default function Home() {
           <span className='text-secondary text-lg md:text-2xl font-bold'>Your Cart</span>
           <div className='bg-base-200 border-neutral h-[350px] md:h-[650px] w-full rounded-xl p-3 overflow-scroll overflow-x-hidden flex md:flex-col gap-3 flex-wrap md:flex-nowrap mx-auto'>
             <ProductCard />
-
           </div>
+          <h1 className='mt-2 text-lg'>Total: <span className='font-semibold'>$32.00</span></h1>
         </div>
         <div className='md:w-1/2 md:h-full p-3 w-full h-1/2'>
           <span className='text-secondary text-lg md:text-2xl font-bold'>Your Data</span>
           <div className='bg-base-200 border-neutral w-full rounded-xl'>
             <UserForm />
           </div>
-          <button className='btn btn-secondary mt-5'>Pay with Paypal</button>
+          <button className='btn btn-secondary mt-5 btn-disabled'>Pay with Paypal</button>
         </div>
       </div>
     </main>
