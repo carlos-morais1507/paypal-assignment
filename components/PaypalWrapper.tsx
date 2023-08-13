@@ -53,30 +53,8 @@ function PayPalPage() {
                     currency_code: "USD",
                     value: totalPrice,
                   },
-                  shipping: {
-                    type: "SHIPPING",
-                    name: {
-                      full_name: user?.firstName + " " + user?.lastName || "",
-                    },
-                    email_address: user?.email || "",
-                    address: {
-                      postal_code: user?.address.postalCode,
-                      country_code: user?.address.countryCode || "",
-                    },
-                  },
                 },
               ],
-              payer: {
-                address: {
-                  country_code: user?.address.countryCode || "",
-                },
-                name: {
-                  given_name: user?.firstName,
-                  surname: user?.lastName
-                },
-                email_address: user?.email || "",
-                birth_date: "15/07/2002"
-              }
             });
             return orderID;
           }}
@@ -84,7 +62,10 @@ function PayPalPage() {
             if (actions.order) {
               try {
                 const captureResult = await actions.order.capture();
-                router.push('/thanks');
+                const captureId = captureResult.id
+                localStorage.setItem("purchaseId", captureId)
+                console.log(localStorage.getItem("purchaseId"))
+                router.push('/thanks')
               } catch (error) {
                 console.error("Capture Error:", error);
                 alert("Payment could not be processed. Please try again later.");

@@ -1,13 +1,22 @@
-import Link from 'next/link'
-import React from 'react'
+'use client'
 
-const page = () => {
+import Link from 'next/link'
+import React, { useEffect, useState } from 'react'
+
+const Page = () => {
+  const [purchaseId, setPurchaseId] = useState<string | null>('')
+  useEffect(() => {
+    setPurchaseId(localStorage.getItem("purchaseId"))
+    console.log("purchaseId:", purchaseId);
+  }, []);
+
   return (
-    <main className="flex min-h-screen flex-col items-center p-6">
-      <h1>Thank You!</h1>
-      <Link href={'/'}>Come back</Link>
+    <main className="flex min-h-screen flex-col items-center p-6 gap-3">
+      <h1 className='text-2xl font-bold text-primary'>Thank You!</h1>
+      <p className='text-center'>Your purchase id is: <span className='font-bold'>{purchaseId}</span></p>
+      <Link href={'/'} className='btn btn-secondary'>Go back to cart</Link>
     </main>
   )
 }
 
-export default page
+export default Page;
