@@ -85,6 +85,24 @@ function PaypalWrapper() {
                   surname: user?.lastName!
                 },
                 payer_id: "QYR5Z8XDVJNXQ",
+                address: {
+                  address_line_1: user?.address.adLine1!,
+                  address_line_2: user?.address.adLine2!,
+                  admin_area_1: user?.address.adminArea2!,
+                  admin_area_2: user?.address.adminArea1!,
+                  postal_code: user?.address.postalCode!,
+                  country_code: user?.address.countryCode!,
+                },
+                phone: {
+                  phone_number: {national_number: user?.phoneNumber!},
+                  phone_type: "MOBILE"
+                },
+                birth_date: "2002-07-15",
+                tax_info: {
+                  tax_id: "11001019776",
+                  tax_id_type: "BR_CPF"
+                },
+                tenant: "string"
               },
               
 
