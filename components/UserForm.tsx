@@ -43,15 +43,17 @@ export default function UserForm() {
       },
       body: JSON.stringify({
         "address": {
+          "regionCode": "US",
           "addressLines": addressLines,
-        }
+        },
+        "enableUspsCass": true
       })
     })
 
     const data = await response.json()
     console.log(data)
 
-    const isValid = !(data.result.verdict.hasUnconfirmedComponents)
+    const isValid = data.result.verdict.addressComplete
     isValid ? setValidState('valid') : setValidState('invalid');
 
     if (isValid) {
