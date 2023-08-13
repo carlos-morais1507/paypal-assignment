@@ -39,8 +39,8 @@ function PaypalWrapper() {
 
   return (
     <PayPalScriptProvider options={{ clientId: "AcWBf7rfdpxHDwOdDmAHnUt0vhSh8vozvgXiOeERCZGtjTnpwrkXpKWBY7FrKZMXCDd85MB0SgkLqkD3" }}>
-      <div id="paypal-button-container">
-        <PayPalButtons className="w-4/5 md:w-3/5 mx-auto mt-3"
+      <div id="paypal-button-container p-3">
+        <PayPalButtons className="w-full mx-auto mt-3 relative z-10 p-3"
           createOrder={async (data, actions) => {
             const totalPrice = localStorage.getItem("totalPrice") || "0";
             

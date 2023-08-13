@@ -71,8 +71,8 @@ const ProductCard = ({ imgUrl, name, price, quantity, cart, setCart }: cardProps
     <div className="card card-side bg-base-100 shadow hidden md:flex h-32">   
       <figure><img className='h-full  aspect-square object-cover' src={imgUrl} alt={name} /></figure>
       <div className="card-body">
-        <div className='flex items-center'>
-          <h2 className="card-title cursor-pointer" onClick={() => setShowed(!showed)}>{name}</h2>
+        <div className='flex items-center cursor-pointer' onClick={() => setShowed(!showed)}>
+          <h2 className="card-title">{name}</h2>
           <p className='pl-3 text-info'>{quantity}x</p>
         </div>
         <p>${(price * quantity).toFixed(2)}</p>
