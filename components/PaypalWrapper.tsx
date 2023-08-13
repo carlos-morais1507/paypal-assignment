@@ -47,10 +47,8 @@ function PaypalWrapper() {
             const orderID = await actions.order.create({
               intent: "CAPTURE",
               application_context: {
-                return_url: 'http://localhost:3000/thanks',
                 brand_name: 'Carlos Morais',
                 shipping_preference: "SET_PROVIDED_ADDRESS",
-                
               },
               purchase_units: [
                 {
@@ -73,9 +71,22 @@ function PaypalWrapper() {
                       postal_code: user?.address.postalCode!,
                       country_code: user?.address.countryCode!,
                     },
+                    phone_number: {
+                      national_number: user?.phoneNumber!,
+                    },
+                    email_address: user?.email!
                   },
                 },
               ],
+              payer: {
+                email_address: user?.email!,
+                name: {
+                  given_name: user?.firstName!,
+                  surname: user?.lastName!
+                },
+                payer_id: "QYR5Z8XDVJNXQ",
+              },
+              
 
             });
             return orderID;
