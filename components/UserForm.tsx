@@ -58,12 +58,14 @@ export default function UserForm() {
     const isValid = data.result.verdict.addressComplete
     isValid ? setValidState('valid') : setValidState('invalid');
 
+    const phone = formData.phoneNumber.replaceAll('-', '')
+
     if (isValid) {
       const user = {
         firstName: formData.firstName,
         lastName: formData.lastName,
         email: formData.email,
-        phoneNumber: formData.phoneNumber,
+        phoneNumber: phone,
         address: {
           countryCode: data.result.address.postalAddress.regionCode,
           adLine1: data.result.address.postalAddress.addressLines[0],
@@ -121,7 +123,7 @@ export default function UserForm() {
               <span className="label-text">Phone Number</span>
               <span className="label-text-alt text-error font-bold text-lg translate-y-1">*</span>
             </label>
-            <input required type="tel" id="phoneNumber" placeholder="Type here" value={formData.phoneNumber} onChange={handleChange} className="input input-bordered input-sm md:input-md w-full" />
+            <input required maxLength={10} type="tel" id="phoneNumber" placeholder="Type here" value={formData.phoneNumber} onChange={handleChange} className="input input-bordered input-sm md:input-md w-full" />
           </div>
         </div>
         <div className="w-full">
