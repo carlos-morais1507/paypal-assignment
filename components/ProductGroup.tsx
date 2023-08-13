@@ -45,7 +45,7 @@ const ProductGroup = () => {
           />
         )
       })}
-      <button onClick={() => console.log(localStorage.getItem("totalPrice"))}>Teste</button>
+      <button onClick={() => console.log('Teste')}>Teste</button>
       </div>
       <h1 className='mt-2 text-lg'>Total: <span className='font-semibold'>${totalPrice.toFixed(2)}</span></h1>
     </div>

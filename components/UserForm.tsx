@@ -62,7 +62,14 @@ export default function UserForm() {
         lastName: formData.lastName,
         email: formData.email,
         phoneNumber: formData.phoneNumber,
-        address: data.result.address.formattedAddress,
+        address: {
+          countryCode: data.result.address.postalAddress.regionCode,
+          adLine1: data.result.address.postalAddress.addressLines[0],
+          adLine2: data.result.address.postalAddress.addressLines[1] || '',
+          postalCode: data.result.address.postalAddress.postalCode,
+          adminArea1: data.result.address.addressComponents[2].componentName.text,
+          adminArea2: data.result.address.addressComponents[3].componentName.text
+        },
       };
     
       localStorage.setItem('user', JSON.stringify(user));

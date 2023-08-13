@@ -1,7 +1,7 @@
 import ProductGroup from '@/components/ProductGroup';
+import PaypalWrapper from '@/components/PaypalWrapper';
 import UserForm from '@/components/UserForm'
 
-declare const paypal: any;
 
 export default function Home() {
 
@@ -17,7 +17,7 @@ export default function Home() {
           <div className='bg-base-200 border-neutral w-full rounded-xl'>
             <UserForm />
           </div>
-          <div id="paypal-button-container"></div>
+            <PaypalWrapper />
         </div>
       </div>
     </main>
