@@ -123,7 +123,7 @@ export default function UserForm() {
               <span className="label-text">Phone Number</span>
               <span className="label-text-alt text-error font-bold text-lg translate-y-1">*</span>
             </label>
-            <input required maxLength={10} type="tel" id="phoneNumber" placeholder="Type here" value={formData.phoneNumber} onChange={handleChange} className="input input-bordered input-sm md:input-md w-full" />
+            <input required maxLength={12} type="tel" id="phoneNumber" placeholder="Type here" value={formData.phoneNumber} onChange={handleChange} className="input input-bordered input-sm md:input-md w-full" />
           </div>
         </div>
         <div className="w-full">
