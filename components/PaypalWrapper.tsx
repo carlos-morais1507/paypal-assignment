@@ -53,6 +53,23 @@ function PayPalPage() {
                     currency_code: "USD",
                     value: totalPrice,
                   },
+                  custom_id: user?.email,
+                  description: "Your purchase description here",
+                  shipping: {
+                    type: "SHIPPING",
+                    name: {
+                      full_name: `${user?.firstName} ${user?.lastName}`,
+                    },
+                    address: {
+                      address_line_1: user?.address.adLine1,
+                      address_line_2: user?.address.adLine2,
+                      admin_area_1: user?.address.adminArea1,
+                      admin_area_2: user?.address.adminArea2,
+                      postal_code: user?.address.postalCode,
+                      country_code: user?.address.countryCode || "",
+                    },
+                    email_address: user?.email
+                  },
                 },
               ],
             });

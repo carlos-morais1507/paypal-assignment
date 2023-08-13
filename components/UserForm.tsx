@@ -43,10 +43,8 @@ export default function UserForm() {
       },
       body: JSON.stringify({
         "address": {
-          "regionCode": "US",
           "addressLines": addressLines,
         },
-        "enableUspsCass": true
       })
     })
 

@@ -1,6 +1,7 @@
 import ProductGroup from '@/components/ProductGroup';
 import PaypalWrapper from '@/components/PaypalWrapper';
 import UserForm from '@/components/UserForm'
+import WrapperTest from '@/components/WrapperTest';
 
 
 export default function Home() {
