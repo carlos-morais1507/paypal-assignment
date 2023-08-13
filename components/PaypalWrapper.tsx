@@ -19,7 +19,8 @@ interface User {
   }
 }
 
-function PayPalPage() {
+function PaypalWrapper() {
+  const router = useRouter()
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
@@ -36,8 +37,6 @@ function PayPalPage() {
     }
   }, []);
 
-  const router = useRouter();
-
   return (
     <PayPalScriptProvider options={{ clientId: "AcWBf7rfdpxHDwOdDmAHnUt0vhSh8vozvgXiOeERCZGtjTnpwrkXpKWBY7FrKZMXCDd85MB0SgkLqkD3" }}>
       <div id="paypal-button-container">
@@ -47,6 +46,12 @@ function PayPalPage() {
             
             const orderID = await actions.order.create({
               intent: "CAPTURE",
+              application_context: {
+                return_url: 'http://localhost:3000/thanks',
+                brand_name: 'Carlos Morais',
+                shipping_preference: "SET_PROVIDED_ADDRESS",
+                
+              },
               purchase_units: [
                 {
                   amount: {
@@ -61,17 +66,17 @@ function PayPalPage() {
                       full_name: `${user?.firstName} ${user?.lastName}`,
                     },
                     address: {
-                      address_line_1: user?.address.adLine1,
-                      address_line_2: user?.address.adLine2,
-                      admin_area_1: user?.address.adminArea1,
-                      admin_area_2: user?.address.adminArea2,
-                      postal_code: user?.address.postalCode,
-                      country_code: user?.address.countryCode || "",
+                      address_line_1: user?.address.adLine1!,
+                      address_line_2: user?.address.adLine2!,
+                      admin_area_1: user?.address.adminArea2!,
+                      admin_area_2: user?.address.adminArea1!,
+                      postal_code: user?.address.postalCode!,
+                      country_code: user?.address.countryCode!,
                     },
-                    email_address: user?.email
                   },
                 },
               ],
+
             });
             return orderID;
           }}
@@ -95,4 +100,4 @@ function PayPalPage() {
   );
 }
 
-export default PayPalPage;
+export default PaypalWrapper;

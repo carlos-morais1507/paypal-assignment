@@ -1,12 +1,9 @@
 import ProductGroup from '@/components/ProductGroup';
-import PaypalWrapper from '@/components/PaypalWrapper';
 import UserForm from '@/components/UserForm'
 import WrapperTest from '@/components/WrapperTest';
 
 
 export default function Home() {
-
-  
 
   return (
     <main className="flex min-h-screen flex-col items-center p-6">
@@ -15,10 +12,7 @@ export default function Home() {
          <ProductGroup />
         <div className='md:w-1/2 md:h-full p-3 w-full h-1/2'>
           <span className='text-secondary text-lg md:text-2xl font-bold'>Your Data</span>
-          <div className='bg-base-200 border-neutral w-full rounded-xl'>
             <UserForm />
-          </div>
-            <PaypalWrapper />
         </div>
       </div>
     </main>
